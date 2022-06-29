@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import pages.AllGalleriesPage;
 import pages.NavigationMenuPage;
+import pages.RegistrationPage;
 
 import java.time.Duration;
 
@@ -17,6 +18,15 @@ public abstract class BaseTestsPage {
 
     private NavigationMenuPage navigationMenuPage;
     private AllGalleriesPage allGalleriesPage;
+    private RegistrationPage registrationPage;
+
+    private final String firstName = "Niko";
+    private final String lastName = "nikovic";
+    private final String email = "milastests@gmail.com";
+    private final String invalidEmail = "x@x.com";
+    private final String password = "ASDFasdf123";
+    private final String confirmPassword = "ASDFasdf123";
+
 
 
     @BeforeClass
@@ -30,6 +40,7 @@ public abstract class BaseTestsPage {
 
         navigationMenuPage = new NavigationMenuPage(driver, driverWait);
         allGalleriesPage = new AllGalleriesPage(driver, driverWait);
+        registrationPage = new RegistrationPage(driver,driverWait);
 
         driver.manage().window().maximize();
         driver.navigate().to("https://gallery-app.vivifyideas.com/");
