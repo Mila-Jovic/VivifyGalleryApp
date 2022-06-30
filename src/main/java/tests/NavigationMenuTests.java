@@ -11,7 +11,7 @@ public class NavigationMenuTests extends BaseTestsPage {
     public void clickLogin() {
         getNavigationMenuPage().clickLoginOptions();
 
-        Assert.assertEquals(getNavigationMenuPage().getURL(), "https://gallery-app.vivifyideas.com/login");
+        Assert.assertEquals(getNavigationMenuPage().getURL(), getLoginURL());
     }
 
     @Test(dependsOnMethods = {"clickLogin"})
@@ -26,7 +26,7 @@ public class NavigationMenuTests extends BaseTestsPage {
     public void clickRegister() {
         getNavigationMenuPage().clickRegisterOptions();
 
-        Assert.assertEquals(getNavigationMenuPage().getURL(), "https://gallery-app.vivifyideas.com/register");
+        Assert.assertEquals(getNavigationMenuPage().getURL(), getRegistrationURL());
     }
 
     @Test(dependsOnMethods = {"clickRegister"})

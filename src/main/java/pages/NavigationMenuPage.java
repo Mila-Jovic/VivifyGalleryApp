@@ -23,11 +23,11 @@ public class NavigationMenuPage extends BasePage {
     }
 
 
-
     public boolean isLogoutPresent() {
         getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(logoutOption));
         return getLogoutOptions().isDisplayed();
     }
+
     public boolean isLoginPresent() {
         getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(loginOption));
         return getLoginOptions().isDisplayed();
