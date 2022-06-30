@@ -22,7 +22,7 @@ public class RegistrationTests extends BaseTestsPage {
                         getPassword(),
                         getConfirmPassword());
 
-        Assert.assertTrue(getAllGalleriesPage().isMyGalleryPresent());
+        Assert.assertTrue(getNavigationMenuPage().isLogoutPresent());
     }
 
     @Test

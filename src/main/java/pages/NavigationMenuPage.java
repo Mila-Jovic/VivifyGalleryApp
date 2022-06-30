@@ -16,10 +16,47 @@ public class NavigationMenuPage extends BasePage {
     private By allGalleriesOption = By.xpath("//*[@id=\"navbarTogglerDemo01\"]/a");
     private By loginOption = By.xpath("//*[@id=\"navbarTogglerDemo01\"]/ul[2]/li[1]/a");
     private By registerOption = By.linkText("Register");
+    private By myGalleryOption = By.xpath("//*[@id=\"navbarTogglerDemo01\"]/ul[1]/li[2]/a");
+    private By createGallery = By.xpath("//*[@id=\"navbarTogglerDemo01\"]/ul[1]/li[3]/a");
+    private By logoutOption = By.xpath("//*[@id=\"navbarTogglerDemo01\"]/ul[2]/li[3]/a");
 
 
     public NavigationMenuPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
+    }
+    public WebElement getMyGallery() {
+        return getDriver().findElement(myGalleryOption);
+    }
+
+    public void clickMyGalleryOptions() {
+        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(myGalleryOption));
+        getMyGallery().click();
+    }
+
+    public WebElement getCreateGallery() {
+        return getDriver().findElement(createGallery);
+    }
+
+    public void clickCreateGallery() {
+        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(createGallery));
+        getCreateGallery().click();
+    }
+
+    public boolean isLogoutPresent() {
+        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(logoutOption));
+        return getLogoutOptions().isDisplayed();
+    }
+
+
+    public WebElement getLogoutOptions() {
+        return getDriver().findElement(logoutOption);
+
+    }
+
+    public void clickLogoutOptions() {
+        getDriverWait().until(ExpectedConditions.elementToBeClickable(getLogoutOptions()));
+        getLogoutOptions().click();
+
     }
 
     public WebElement getLoginOptions() {
@@ -70,8 +107,13 @@ public class NavigationMenuPage extends BasePage {
         getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         return getDriver().getCurrentUrl();
     }
-    public void driverGoToRegistration (){
+
+    public void driverGoToRegistration() {
         getDriver().navigate().to("https://gallery-app.vivifyideas.com/");
         clickRegisterOptions();
+    }
+    public void driverGoToLogin() {
+        getDriver().navigate().to("https://gallery-app.vivifyideas.com/");
+        clickLoginOptions();
     }
 }
