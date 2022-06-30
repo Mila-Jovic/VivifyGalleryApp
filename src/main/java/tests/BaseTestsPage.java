@@ -21,7 +21,9 @@ public abstract class BaseTestsPage {
     private RegistrationPage registrationPage;
 
     private final String firstName = "Niko";
-    private final String lastName = "nikovic";
+    private final String firstNameVariation = "Nikos";
+    private final String lastName = "Nikovic";
+    private final String lastNameVariation = "Nikosić";
     private final String email = "milastests@gmail.com";
     private final String invalidEmail = "x@x.com";
     private final String password = "ASDFasdf123";

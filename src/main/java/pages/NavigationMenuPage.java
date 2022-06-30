@@ -70,4 +70,8 @@ public class NavigationMenuPage extends BasePage {
         getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         return getDriver().getCurrentUrl();
     }
+    public void driverGoToRegistration (){
+        getDriver().navigate().to("https://gallery-app.vivifyideas.com/");
+        clickRegisterOptions();
+    }
 }

@@ -16,6 +16,7 @@ public class RegistrationPage extends BasePage {
     private By confirmPasswordBar = By.id("password-confirmation");
     private By checkBoxTermsAndConditions = By.xpath("//*[@id=\"app\"]/div[2]/div/form/div[6]/input");
     private By submitBtn = By.xpath("//*[@id=\"app\"]/div[2]/div/form/button");
+    private By emailNotificationMessage = By.xpath("//*[@id=\"app\"]/div[2]/div/form/div[3]/p");
 
     public RegistrationPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
@@ -41,9 +42,13 @@ public class RegistrationPage extends BasePage {
 
     }
 
-    public void clickLastNameBar() {
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(getLastNameBar()));
-        getLastNameBar().click();
+    public WebElement getEmailNotificationMessage() {
+        return getDriver().findElement(emailNotificationMessage);
+    }
+
+    public String getEmailNotificationText() {
+        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(emailNotificationMessage));
+        return getEmailNotificationMessage().getText();
     }
 
     public WebElement getEmailBar() {
@@ -51,29 +56,15 @@ public class RegistrationPage extends BasePage {
 
     }
 
-    public void clickEmailBar() {
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(getEmailBar()));
-        getEmailBar().click();
-    }
 
     public WebElement getPasswordBar() {
         return getDriver().findElement(passwordBar);
 
     }
 
-    public void clickPasswordBar() {
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(getPasswordBar()));
-        getPasswordBar().click();
-    }
-
     public WebElement getConfirmPasswordBar() {
         return getDriver().findElement(confirmPasswordBar);
 
-    }
-
-    public void clickConfirmPasswordBar() {
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(getConfirmPasswordBar()));
-        getConfirmPasswordBar().click();
     }
 
     public WebElement getCheckBar() {
@@ -101,4 +92,5 @@ public class RegistrationPage extends BasePage {
         clickSubmitBtn();
 
     }
+
 }

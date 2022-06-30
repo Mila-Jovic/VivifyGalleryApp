@@ -22,7 +22,8 @@ public class AllGalleriesPage extends BasePage {
     public WebElement getHeader (){
         return getDriver().findElement(header);
     }
-    public String  getHeaderText (){
+
+    public String getHeaderText (){
         getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(header));
         return getHeader().getText();
     }
