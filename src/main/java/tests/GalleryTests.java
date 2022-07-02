@@ -43,12 +43,12 @@ public class GalleryTests extends BaseTestsPage {
     }
 
     @Test(priority = 8)
-    public void deleteComment() throws InterruptedException {
+    public void deleteComment(){
         getAllGalleriesPage().clickMyGalleryOptions();
         getAllGalleriesPage().clickFirstGallery();
         getAllGalleriesPage().clickDeleteCommentBtn();
         getAllGalleriesPage().closeAlert();
-        Assert.assertFalse(getAllGalleriesPage().isCommentPresent());
+        Assert.assertTrue(getAllGalleriesPage().isCommentListEmpty());
 
     }
 
@@ -61,7 +61,6 @@ public class GalleryTests extends BaseTestsPage {
         getAllGalleriesPage().closeAlert();
         getAllGalleriesPage().clickMyGalleryOptions();
         Assert.assertTrue(getAllGalleriesPage().isNoGalleryFoundNotificationPresent());
-
 
     }
 }

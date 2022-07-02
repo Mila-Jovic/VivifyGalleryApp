@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.AllGalleriesPage;
 import pages.LoginPage;
@@ -26,11 +27,11 @@ public abstract class BaseTestsPage {
     private final String firstNameVariation = "Nikos";
     private final String lastName = "Nikovic";
     private final String lastNameVariation = "Nikosić";
-    private final String email = "milastests@gmail.com";
+    private final String email = "x@x.com";
     private final String invalidEmail = "x@x.com";
     private final String password = "ASDFasdf123";
     private final String invalidPassword = "ASDFasdf1235";
-    private final String confirmPassword = "ASDFasdf123";
+    private final String confirmPassword = "12345678";
 
     private final String galleryTitle = "Mila's test gallery";
     private final String galleryTitleEdited = "Mila's test gallery edited";
@@ -65,6 +66,10 @@ public abstract class BaseTestsPage {
         driver.manage().window().maximize();
         driver.navigate().to("https://gallery-app.vivifyideas.com/");
     }
+    @AfterClass
+    public void afterClass(){
+        driver.close();
 
+    }
 
 }

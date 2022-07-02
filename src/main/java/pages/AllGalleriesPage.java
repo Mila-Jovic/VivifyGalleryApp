@@ -27,10 +27,15 @@ public class AllGalleriesPage extends BasePage {
     private By commentBar = By.xpath("//*[@id=\"app\"]/div[2]/div/div[4]/form/div/textarea");
     private By commentTitle = By.xpath("//*[@id=\"app\"]/div[2]/div/div[3]/ul/li/p[1]");
     private By deleteCommentBtn = By.xpath("//*[@id=\"app\"]/div[2]/div/div[3]/ul/li/div/button");
+    private By commentList = By.xpath("//*[@id=\"app\"]/div[2]/div/div[2]/ul");
 
 
     public AllGalleriesPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
+    }
+
+    public boolean isCommentListEmpty() {
+        return getDriver().findElements(commentList).isEmpty();
     }
 
     public WebElement getEditGalleryBtn() {
@@ -48,11 +53,6 @@ public class AllGalleriesPage extends BasePage {
 
     public WebElement getCommentTitle() {
         return getDriver().findElement(commentTitle);
-    }
-
-    public boolean isCommentPresent() {
-        return getCommentTitle().isDisplayed();
-
     }
 
 
